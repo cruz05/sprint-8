@@ -1,24 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useContext } from 'react'
 import { StarshipCard } from '../components/StarshipCard'
-
-const API_URL = 'https://swapi.dev/api/starships/'
+import { StarshipsContext } from '../context/StarshipsContext'
+import { FaChevronDown } from 'react-icons/fa'
 
 export default function StarshipList() {
-  const [starships, setStarships] = useState([])
-  const [loading, setLoading] = useState(false)
+  const { starships, loading } = useContext(StarshipsContext)
 
-  useEffect(() => {
-    setLoading(true)
-    fetch(API_URL)
-      .then(res => res.json())
-      .then(data => {
-        const { results } = data
-        // dont repeat the state
-        setStarships([...results])
-        setLoading(false)
-        console.log(results)
-      })
-  }, [])
+  const handleClick = e => {
+    console.log('Load more starships')
+  }
 
   return (
     <section className='flex flex-col gap-2'>
@@ -26,6 +16,12 @@ export default function StarshipList() {
       {starships.map((s, i) => (
         <StarshipCard key={i} id={i} name={s.name} model={s.model} />
       ))}
+      <button
+        type='button'
+        onClick={handleClick}
+        className='flex items-center border-2 border-yellow-300 px-4 py-1 rounded-lg m-auto hover:border-white'>
+        View More <FaChevronDown />
+      </button>
     </section>
   )
 }
