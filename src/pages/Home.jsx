@@ -26,7 +26,7 @@ export default function Home() {
         </p>
       </div>
       <Link
-        className='rounded-lg border border-yellow-400 py-1.5 px-5 bg-transparent hover:border-white'
+        className='rounded-lg border-2 border-yellow-400 py-1.5 px-5 bg-transparent hover:border-white'
         to='/starships'>
         See More
       </Link>

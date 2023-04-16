@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 
-export function StarshipCard({ id, name, model }) {
+export function StarshipCard({ name, model }) {
+  const id = name.toLowerCase().replaceAll(' ', '-')
   return (
     <div className='bg-zinc-900 rounded-sm mx-auto p-3 w-4/5 sm:w-3/5'>
       <Link to={`/starships/${id}`}>
