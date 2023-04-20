@@ -2,7 +2,7 @@ import { memo, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
 const styles = {
-  section: 'px-5 py-3 w-96 mx-auto text-yellow-400 bg-zinc-900 text-center',
+  section: 'px-5 py-3 max-w-[390px] text-yellow-400 bg-zinc-900 text-center',
   input:
     'w-full px-3 py-1 text-black focus:bg-zinc-800 focus:text-yellow-400 rounded-sm focus:outline-yellow-400 my-1',
   button: 'bg-neutral-700 text-white w-full py-1.5 hover:bg-blue-900'
@@ -16,7 +16,6 @@ export const Form = memo(function Form() {
   const handleSubmit = e => {
     e.preventDefault()
     console.log(userAccount)
-    // window.localStorage.setItem('user', userAccount)
   }
 
   const handleCheck = e => {
@@ -24,7 +23,7 @@ export const Form = memo(function Form() {
   }
 
   return (
-    <section className={styles.section}>
+    <div className={styles.section}>
       <h2 className='text-xl font-bold'>
         {pathname.includes('login') ? 'Login' : 'Register'}
       </h2>
@@ -68,6 +67,6 @@ export const Form = memo(function Form() {
           {pathname.includes('login') ? 'Sign in' : 'Create Account'}
         </button>
       </form>
-    </section>
+    </div>
   )
 })
