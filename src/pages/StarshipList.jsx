@@ -11,7 +11,7 @@ export default function StarshipList() {
   }
 
   return (
-    <section className='flex flex-col gap-2'>
+    <div className='flex flex-col gap-2 w-full sm:min-w-[450px]'>
       {loading && <p>Loading...</p>}
       {starships.map((s, i) => (
         <StarshipCard key={i} id={i} name={s.name} model={s.model} />
@@ -22,6 +22,6 @@ export default function StarshipList() {
         className='flex items-center border-2 border-yellow-300 px-4 py-1 rounded-lg m-auto hover:border-white'>
         View More <FaChevronDown />
       </button>
-    </section>
+    </div>
   )
 }

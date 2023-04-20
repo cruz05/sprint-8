@@ -3,15 +3,15 @@ import banner from '../assets/banner.webp'
 
 export default function Home() {
   return (
-    <div className='w-4/5 m-auto'>
+    <div className='text-center'>
       <h1 className='text-lg'>A long time ago in a galaxy far, far away...</h1>
       <p>
         Welcome to the fansite on the Internet devoted to the starships of the
         Star Wars saga.
       </p>
-      <div className='my-5 rounded-sm'>
+      <div className='my-5 rounded-sm overflow-hidden'>
         <img
-          className='w-full h-80 object-cover m-auto'
+          className='w-full h-80 object-cover'
           src={banner}
           alt='Star Wars Episode 1.'
         />
@@ -26,9 +26,9 @@ export default function Home() {
         </p>
       </div>
       <Link
-        className='rounded-lg border-2 border-yellow-400 py-1.5 px-5 bg-transparent hover:border-white'
+        className='rounded-lg border-2 border-yellow-400 py-1.5 px-5 hover:border-white'
         to='/starships'>
-        See More
+        Go to starships
       </Link>
     </div>
   )
