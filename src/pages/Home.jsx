@@ -15,7 +15,7 @@ export default function Home() {
           src={banner}
           alt='Star Wars Episode 1.'
         />
-        <p className='text-left mb-2 p-5 bg-zinc-900'>
+        <p className='text-left mb-2 p-5 bg-[#1c1c1c]'>
           <b>B-Wing Fighter</b> is the oddest-looking starfighter in the Rebel
           Alliance fleet, this ship is as powerful as it is ungainly. The
           structure of the ship is almost entirely taken up by its primary

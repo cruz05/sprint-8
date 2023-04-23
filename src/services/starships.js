@@ -19,9 +19,10 @@ export const getStarships = async () => {
       length: `${ship.length} meters`,
       maximum_atmosphering_speed: `${ship.max_atmosphering_speed} km/h`,
       hyperdrive_rating: ship.hyperdrive_rating,
-      maximum_speed_in_realspace: `${ship.MGLT} mglt`
+      maximum_speed_in_realspace: `${ship.MGLT} mglt`,
+      pilots: ship.pilots,
+      films: ship.films
     }))
-
     return starships
   } catch (e) {
     console.error('Error fetching starships')

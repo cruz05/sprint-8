@@ -12,16 +12,20 @@ export default function StarshipList() {
 
   return (
     <div className='flex flex-col gap-2 w-full sm:min-w-[450px]'>
-      {loading && <p>Loading...</p>}
-      {starships.map((s, i) => (
-        <StarshipCard key={i} id={i} name={s.name} model={s.model} />
-      ))}
-      <button
-        type='button'
-        onClick={handleClick}
-        className='flex items-center border-2 border-yellow-300 px-4 py-1 rounded-lg m-auto hover:border-white'>
-        View More <FaChevronDown />
-      </button>
+      {loading && <p className='text-center'>Loading...</p>}
+      {!loading && (
+        <>
+          {starships.map((s, i) => (
+            <StarshipCard key={i} id={i} name={s.name} model={s.model} />
+          ))}
+          <button
+            type='button'
+            onClick={handleClick}
+            className='flex items-center border-2 border-yellow-300 px-4 py-1 rounded-lg m-auto hover:border-white'>
+            View More <FaChevronDown />
+          </button>
+        </>
+      )}
     </div>
   )
 }
