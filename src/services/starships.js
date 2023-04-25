@@ -1,8 +1,8 @@
 const API_URL = 'https://swapi.dev/api/starships/'
 
-export const getStarships = async () => {
+export const getStarships = async (page = 1) => {
   try {
-    const response = await fetch(API_URL)
+    const response = await fetch(`${API_URL}?page=${page}`)
     const json = await response.json()
     const { results } = json
 

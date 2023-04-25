@@ -1,19 +1,26 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { getStarships } from '../services/starships'
+import { StarshipsContext } from '../context/StarshipsContext'
 
-export default function useStarships() {
-  const [starships, setStarships] = useState([])
+export function useStarships() {
+  const { starships, setStarships } = useContext(StarshipsContext)
   const [loading, setLoading] = useState(false)
+  const [nextPage, setNextPage] = useState(1)
 
-  const updateShipList = () => {
+  useEffect(() => {
     setLoading(true)
     getStarships().then(newShips => {
       setLoading(false)
       setStarships([...newShips])
-      console.log(newShips)
     })
-  }
-  useEffect(updateShipList, [])
+  }, [])
 
-  return { starships, updateShipList, loading }
+  useEffect(() => {
+    if (nextPage === 1 || nextPage > 4) return
+    getStarships(nextPage).then(newShips => {
+      setStarships(prevShips => prevShips.concat(newShips))
+    })
+  }, [nextPage])
+
+  return { starships, loading, nextPage, setNextPage }
 }
