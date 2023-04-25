@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa'
 
 const styles = {
-  link: 'border-b text-sm',
+  link: 'border-b text-sm hover:text-gray-300',
   hover: 'p-2.5 hover:border rounded-full'
 }
 
@@ -11,27 +11,24 @@ export default function Footer() {
     <footer className='text-center py-3'>
       <p>More from Star Wars</p>
       <div className='flex justify-center items-center gap-4 h-12'>
-        <a
+        <Link
           className={styles.hover}
-          href='https://www.facebook.com/starwars.es/'
-          rel='noreferrer'
+          to='https://www.facebook.com/starwars.es/'
           target='_blank'>
           <FaFacebookF />
-        </a>
-        <a
+        </Link>
+        <Link
           className={styles.hover}
           href='https://twitter.com/starwars'
-          rel='noreferrer'
           target='_blank'>
           <FaTwitter />
-        </a>
-        <a
+        </Link>
+        <Link
           className={styles.hover}
           href='https://www.instagram.com/starwars/'
-          rel='noreferrer'
           target='_blank'>
           <FaInstagram />
-        </a>
+        </Link>
       </div>
       <p className='text-sm'>TM & &copy; Lucasfilm Ltd. All Rights Reserved</p>
       <div className='flex justify-center gap-x-3 gap-y-2 flex-wrap'>
