@@ -1,13 +1,11 @@
-import { createContext } from 'react'
-import useStarships from '../hooks/useStarships'
-
+import { createContext, useState } from 'react'
 export const StarshipsContext = createContext([])
 
 export function StarshipsContextProvider({ children }) {
-  const { starships, updateShipList, loading } = useStarships()
+  const [starships, setStarships] = useState([])
 
   return (
-    <StarshipsContext.Provider value={{ starships, updateShipList, loading }}>
+    <StarshipsContext.Provider value={{ starships, setStarships }}>
       {children}
     </StarshipsContext.Provider>
   )
