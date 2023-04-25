@@ -16,9 +16,9 @@ export function Header() {
   return (
     <header className='py-3'>
       <div className='w-5/6 mx-auto flex flex-wrap justify-between items-center'>
-        <a href='https://www.starwarskids.com/'>
+        <NavLink to='https://www.starwarskids.com/' target='_blank'>
           <img src={kids} alt='Star Wars Kids logo.' />
-        </a>
+        </NavLink>
         <img className='max-h-20' src={logo} alt='Star Wars logo.' />
         {isLogged ? (
           <button onClick={handleClick} className='flex items-center gap-2'>
